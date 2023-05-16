@@ -1,5 +1,6 @@
+"use client";
 import React from "react";
-// import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
 interface PropsType {
   time: string;
@@ -7,13 +8,14 @@ interface PropsType {
 }
 
 const OverviewCard = ({ time, content }: PropsType) => {
-  // const router = useNavigate();
+  const id = 1;
+  const router = useRouter();
   return (
     <div
       className="md:flex gap-4 border-b-2 py-4"
-      // onClick={() => {
-      //   router("task/1");
-      // }}
+      onClick={() => {
+        router.push(`task/${id}`);
+      }}
     >
       <div className="text-gray-600">{time}</div>
       <div className="font-bold">{content}</div>
